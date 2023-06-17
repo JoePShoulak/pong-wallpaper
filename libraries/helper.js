@@ -20,7 +20,7 @@ const firstReturn = (arr, callback) => {
   return result;
 };
 
-tempStyle = drawCB => {
+const tempStyle = drawCB => {
   push();
   drawCB();
   pop();
