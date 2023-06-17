@@ -1,17 +1,19 @@
-let p;
-
 const BG_COLOR = 25;
+const TESTING = true;
+
+let ball;
 
 function setup() {
-  const height = (windowWidth / 48) * 9;
-  createCanvas(windowWidth, height);
+  const testMode = typeof TESTING !== "undefined" && TESTING;
 
-  p = new Particle(10, 20);
-  p.vel = createVector(5, 5);
+  createCanvas(windowWidth, testMode ? (windowWidth * 9) / 48 : windowHeight);
+
+  ball = new Ball(10, 20);
+  if (testMode) ball.vel = createVector(5, 5); // For initial testing
 }
 
 function draw() {
   background(BG_COLOR);
 
-  p.update();
+  ball.update();
 }
